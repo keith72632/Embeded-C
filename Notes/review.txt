@@ -1,0 +1,69 @@
+Review:
+
+Toggle Output Pin:
+Refernce Manual:
+	-memory and bus architecture->memory map
+	-find base address and range. Ex. GPIOD 0x4002 0C00 - 0x4002 0FFF
+	-all periheral registers in STM32 are 32 bits wide
+	-different peripherals hhave different number of register
+	-peripherals gave different mode registers. reference picture for GIOD register modes
+	-for standard output pin, mode register and output data register are key
+	-each peripheral register(line output) is 32 bits(4 bytes). register is 4 integers wide. 0x4002_0C00 through 0x4002_0C03
+	-controlling output state:
+		-1 high, 0 low
+Procdure to turn on LED:
+	-identify port used to connect led(GPIOD for onboard)
+	-identify pin where light is connected(12 for onboard)
+	-activate clock:
+		-peripherals are dead until clock is enabled
+		-find clock control registers RCC, Reset and Clock Control
+			-in manual as reset clock control (RCC_AHB1ENR)
+			-use Data Sheet to see which buses connect where
+		-find base address (in memory map) (in this case is 0x40023800
+		-add offset (in this case 0x30)
+			-which equals 0x40023830
+		-set bit for corresponding GPIO (GPIOD is 3rd). found under RCC AHB1 periph clock register in Ref man
+	-configure GPIO pin as output
+		-get base address of gpio mode register (GPIOD is 0x40020C00) and add offset (0x00)
+		-*(page 281) there 16 pins, in each peripheral register that are two bits. to set mode of pin:
+			-00 input
+			-01 general purpaose output
+			-10 alt function
+			-11 analog mode
+		-pin 0 has bits 0 and 1, in pin 1 has bits 2 and 3, pin 13 has 26 and 27 ect.
+	-write to GPIO pin (1 high, 2 low)
+		-find GPIOD register address
+		-add offset (0x14 for GPIOD)
+		-only 16 bits are available
+		-toggle bit 0 - 15 for pins 0 - 15
+			-labeled ODR(pinNum)
+	
+Notes:
+
+	rcc base address: 0x40023800
+	offset          : 0x30
+	starting address: 0x40023830*
+	bit for GPIOD clock : 3
+
+	GPIOD mode reg base addr: 0x40020C00* (offset is 0x00)
+	pin 12 (bit 24 and 25) set to 01
+
+	GPIOD output data register addr = 0x40020C00
+	offset                          = 0x14
+	final addr                      = 0x40020C14*
+	pin to toggle                   = 12
+
+	
+GPIOA pin 7 output:
+        rcc base address: 0x40023800
+        offset          : 0x30
+        starting address: 0x40023830*
+	bit 0
+
+	mode reg addr: 0x40020000*
+	bit 14 and 15 to 01
+
+	gpioa output data reg add 0x40020000
+	offset: 0x14
+	regist addr: *0x40020014
+	bit 7

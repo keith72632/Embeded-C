@@ -1,0 +1,10 @@
+18:17:41 **** Incremental Build of configuration Debug for project semihosting ****
+make -j8 all 
+arm-none-eabi-size   semihosting.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4596	    116	   1756	   6468	   1944	semihosting.elf
+Finished building: default.size.stdout
+ 
+
+18:17:42 Build Finished. 0 errors, 0 warnings. (took 462ms)
+

@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+	int a = 20;
+	int b = 40;
+	int c = a & b;
+
+	printf("Bitwise & a and b: %d\n", c);
+	return 0;
+}
+
+/*
+ * main.c
+ *
+ *  Created on: Jan 20, 2021
+ *      Author: keith
+ */
+
+

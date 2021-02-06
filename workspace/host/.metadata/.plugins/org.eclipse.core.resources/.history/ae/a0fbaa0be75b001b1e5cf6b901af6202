@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+	int a;
+	int b;
+
+
+	printf("enter two integers\n");
+	scanf("%d %d", &a, &b);
+	printf("Bitwise &: %d\n", (a & b));
+	printf("Bitwise |: %d\n", (a | b));
+	printf("Bitwise ~:&d\n", (a ~b));
+
+	return 0;
+}
+
+/*
+ * main.c
+ *
+ *  Created on: Jan 20, 2021
+ *      Author: keith
+ */
+
+

@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+	int a;
+	int b;
+
+
+	printf("enter two integers\n");
+	scanf("%d %d", &a, &b);
+	printf("Bitwise &: %d\n", (a & b));
+	printf("Bitwise |: %d\n", (a | b));
+	printf("Bitwise ^: %d\n", (a ^ b));
+	printf("Bitwise ~: %d\n", (~a));
+
+	if((a & 1) == 0){
+		printf("A is even\n");
+	} else {
+		printf("A is odd\n");
+	}
+	if((b & 1) == 0){
+		printf("b is even\n");
+	}else {
+		printf("B is odd\n");
+	}
+
+	return 0;
+}
+
+/*
+ * main.c
+ *
+ *  Created on: Jan 20, 2021
+ *      Author: keith
+ */
+
+

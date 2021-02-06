@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+void wait_for_user_input(void);
+
+int main() {
+	int a;
+	int b;
+
+
+	printf("enter two integers\n");
+	scanf("%d %d", &a, &b);
+	printf("Bitwise &: %d\n", (a & b));
+	printf("Bitwise |: %d\n", (a | b));
+	printf("Bitwise ^: %d\n", (a ^ b));
+	printf("Bitwise ~: %d\n", (~a));
+
+	if((a & 1)){
+		printf("A is odd\n");
+	} else {
+		printf("A is even\n");
+	}
+	if((b & 1)){
+		printf("b is odd\n");
+	}else {
+		printf("B is even\n");
+	}
+
+	wait_for_user_input();
+}
+
+void wait_for_user_input(void){
+	getchar();
+}
+
+/*
+ * main.c
+ *
+ *  Created on: Jan 20, 2021
+ *      Author: keith
+ */
+
+

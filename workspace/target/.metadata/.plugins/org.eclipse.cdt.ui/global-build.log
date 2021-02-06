@@ -1,0 +1,319 @@
+07:13:39 **** Build of configuration Debug for project Testing ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "Testing.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/Testing/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Testing.elf
+ 
+arm-none-eabi-size   Testing.elf 
+arm-none-eabi-objdump -h -S  Testing.elf  > "Testing.list"
+arm-none-eabi-objcopy  -O binary  Testing.elf  "Testing.bin"
+   text	   data	    bss	    dec	    hex	filename
+    860	      8	   1568	   2436	    984	Testing.elf
+Finished building: default.size.stdout
+ 
+Finished building: Testing.bin
+ 
+Finished building: Testing.list
+ 
+07:13:48 **** Incremental Build of configuration Debug for project Testing ****
+make -j8 all 
+arm-none-eabi-size   Testing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    860	      8	   1568	   2436	    984	Testing.elf
+Finished building: default.size.stdout
+ 
+09:55:36 **** Incremental Build of configuration Debug for project Testing ****
+make -j8 all 
+arm-none-eabi-size   Testing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    860	      8	   1568	   2436	    984	Testing.elf
+Finished building: default.size.stdout
+ 
+09:56:03 **** Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-size   review.elf 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3472	    108	   1580	   5160	   1428	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+09:56:14 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3472	    108	   1580	   5160	   1428	review.elf
+Finished building: default.size.stdout
+ 
+09:57:28 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3472	    108	   1580	   5160	   1428	review.elf
+Finished building: default.size.stdout
+ 
+11:04:42 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:26:28: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *pClockControl = 0x40023830;
+                            ^~~~~~~~~~
+../Src/main.c:27:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *pGDIODmode = 0x40020C00;
+                         ^~~~~~~~~~
+../Src/main.c:28:24: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *pGPIODout = 0x40020C14;
+                        ^~~~~~~~~~
+../Src/main.c:30:16: error: invalid operands to binary & (have 'uint32_t * {aka long unsigned int *}' and 'int')
+  pClockControl &= (1 << 3);
+                ^~
+../Src/main.c:28:12: warning: unused variable 'pGPIODout' [-Wunused-variable]
+  uint32_t *pGPIODout = 0x40020C14;
+            ^~~~~~~~~
+../Src/main.c:27:12: warning: unused variable 'pGDIODmode' [-Wunused-variable]
+  uint32_t *pGDIODmode = 0x40020C00;
+            ^~~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:05:48 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:30:16: error: invalid operands to binary & (have 'uint32_t * {aka long unsigned int *}' and 'int')
+  pClockControl &= (1 << 3);
+                ^~
+../Src/main.c:28:12: warning: unused variable 'pGPIODout' [-Wunused-variable]
+  uint32_t *pGPIODout = (uint32_t *)0x40020C14;
+            ^~~~~~~~~
+../Src/main.c:27:12: warning: unused variable 'pGDIODmode' [-Wunused-variable]
+  uint32_t *pGDIODmode = (uint32_t *)0x40020C00;
+            ^~~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:06:19 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:28:12: warning: unused variable 'pGPIODout' [-Wunused-variable]
+  uint32_t *pGPIODout = (uint32_t *)0x40020C14;
+            ^~~~~~~~~
+../Src/main.c:27:12: warning: unused variable 'pGDIODmode' [-Wunused-variable]
+  uint32_t *pGDIODmode = (uint32_t *)0x40020C00;
+            ^~~~~~~~~~
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3512	    108	   1580	   5200	   1450	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 
+11:06:20 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3512	    108	   1580	   5200	   1450	review.elf
+Finished building: default.size.stdout
+ 
+11:07:32 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:28:12: warning: unused variable 'pGPIODout' [-Wunused-variable]
+  uint32_t *pGPIODout = (uint32_t *)0x40020C14;
+            ^~~~~~~~~
+../Src/main.c:27:12: warning: unused variable 'pGDIODmode' [-Wunused-variable]
+  uint32_t *pGDIODmode = (uint32_t *)0x40020C00;
+            ^~~~~~~~~~
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3512	    108	   1580	   5200	   1450	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+11:10:33 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+11:11:32 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+11:13:17 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+11:13:34 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+11:24:24 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+11:27:36 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	    108	   1580	   5236	   1474	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+12:22:13 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3580	    108	   1580	   5268	   1494	review.elf
+Finished building: review.bin
+Finished building: default.size.stdout
+Finished building: review.list
+ 
+ 
+ 
+12:23:26 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3580	    108	   1580	   5268	   1494	review.elf
+Finished building: default.size.stdout
+ 
+12:24:28 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3580	    108	   1580	   5268	   1494	review.elf
+Finished building: default.size.stdout
+ 
+12:25:56 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    804	      8	   1568	   2380	    94c	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+Finished building: review.list
+ 
+ 
+12:26:13 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    804	      8	   1568	   2380	    94c	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 

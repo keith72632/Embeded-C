@@ -1,0 +1,128 @@
+
+Embeded random notes:
+	-static is used when a global variable needs to be specific to one function
+		-used with functions as well
+	-to use variable from another file, use extern
+ASCII:
+	-AMericna Standard for Informaton Intercahnge
+	-28 character, 7 bits each
+	-represents everything in memory as numbers
+Prototypes:
+	-fucntions have to be declared before use
+	-declared underneath #includes
+	-header files use include guards (#ifndef, #define, #endif
+Type Casting:
+	-implicit and explicit
+		-implicit is done by compiler and explcit is done manually
+Cross Compiler:
+	-arm-none-eabi-gcc
+	-creates different executables for target like .elf/.bin/.hex
+		-.elf-executable link format
+		-
+Debug:
+	-right click prooject
+	-debug as STM32 project
+	-adjsut settings and apply
+	-open window tab and get SWV ITM data tab
+	-.c ->preoprocessor-> parser -> .s code generator -> assembler ->.o -> linker -> .a and .elf
+Analyzing C embeded code:
+	-What is a micro controller or MCU:
+		-small computer system on a cingle chip. limited resources
+	-peripherals- ADC DAC TIMERS UART USB
+	-memories- SRAM FLASH ROM EEPROM
+	-cpu executes instructions stored in program memory(non volatile)
+		-cpu comminucates with memory using bus interafces
+	-data memory(volatile) used a scratchpad
+	-code memory -> flash
+	-data memory -> static ram
+	-the purose of code is to store instructions
+	-MPROM
+	-EPROM
+	-EEPROM
+	-OPT On time programmable
+Memory address:
+	-Docs show starting and ending address in flash memory
+	-static mem = flash
+	-data = sram
+	-STM32F407VG has two data memory banks
+	-window->view->memory browser
+Analyzing .elf files:
+	-$arm-none-eabi-objdump -h 003Add.elf
+	-or just got to prject and open .list file with text editor
+	-code is loaded into flash via data. in list file, VMA->LMA
+	-copy LMA address with prefix 0x into memory browser
+	*-this is all done in statup_stm32f406vgtc.s in assembly
+		-Reset of processor
+		-processor jumps to reset handler
+		-copy data from flash to sram
+		-zero out SRAM locations correspons to .bss sextion size 
+		-call std. library init function libc_init()
+		-call main() of user program
+		-never return from main() back to reset handler
+		-*go to CopyDataInit: and put a breakpoint at line with adds
+		-then debug. this will hang on breakpoint
+		-window->view->registers. then go down to see data from main.c
+Diassembling:
+	-in debug view, window->view->disasssembly
+	-processor: ARM Cortex M4
+	-Architecture: ARMv7E-M
+	-Instuction set achristecture: Thumb-2 instuction set
+	-to step through instruction, use instruction stepping mode
+Decimal Numbers:
+	-respresent very small and very large data type
+	-IEEE754 standard for floating points
+	-store sign and exponent
+	-format specifiers
+		-lf = doble
+		-f = float
+		-e and le = sceintific notations
+		-float size = 4 bytes
+		-float up to 6 decimal places
+			-use 0.x to specify how many decimal places
+		-double = 8 bytes up to 15 places
+scanf:
+	-fflush(sdtout) flushes output buffer to console
+
+Pointers:
+	-comiler always resevres 8 bytes for pointer
+Bitwise Operators:
+	-& and. for testing
+	- >> right shift
+	- << left shift
+	- | or. setting of bits
+	- ~ NOT (negation). clearing of bits
+	- ^ XOR. toggling of bits
+	-bit masking is a technique used to modify the bits
+		-a mask value is a bit number used to test bits, like 1 (00000001)
+	-*format specfier for bits is x
+
+Hardware:
+	-LED lights are labeled LD# in schematiocs
+	-ports, like PA through PD, have 16 pins. ex PB6
+	-GPIO is a peripheral inside of board to cvontrol pins
+		-each peripheral has its own address and registers
+	-system bus(AHB) sends addresses to different parts, like GPIOD and data memeory
+	-to access GPIO register, look up memory address in reference manual(0x4002 0C00 to 0x4002 0FFF in my case)
+	-starting pin
+		-idnetify port
+		-idientify pin where led is connected
+		-activate the GPIOD perioheral(clock)
+		-configure pIN MODE
+		-1 HIGH 0 LOW
+	-enabling clock
+		-find RCC(reset and clock control) memory range
+			-mine is 0x4002 3800 - 0x4002 3BFF
+	
+Calculating addresses:
+	-find base address RCC 0x4002 3800 and add offset
+		-0x4002 3800 + 0x30 --> 0x40023830
+	-find base adress for GPIOD register 0x4002 0C00
+	-add offset found in GPIO registers page 281
+	-offset calc == 0x4002 0C00 + 0x00 --> 0x4002 0C00
+	-address of the GPIOD output data register (used to write)
+		- 0x4002 0C00 + 0x14 ==> 0x40020c14
+Bit Extraction: 
+
+const: 
+	-uint_8 constL pointer is muttable but the data isnt
+	-
