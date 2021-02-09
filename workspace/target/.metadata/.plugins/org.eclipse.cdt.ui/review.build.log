@@ -1,4 +1,4 @@
-12:26:13 **** Incremental Build of configuration Debug for project review ****
+18:14:32 **** Incremental Build of configuration Debug for project review ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,13 +8,13 @@ arm-none-eabi-objdump -h -S  review.elf  > "review.list"
 arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
 arm-none-eabi-size   review.elf 
    text	   data	    bss	    dec	    hex	filename
-    804	      8	   1568	   2380	    94c	review.elf
+    808	      8	   1568	   2384	    950	review.elf
 Finished building: default.size.stdout
 Finished building: review.bin
  
- 
 Finished building: review.list
  
+ 
 
-12:26:14 Build Finished. 0 errors, 0 warnings. (took 470ms)
+18:14:32 Build Finished. 0 errors, 0 warnings. (took 463ms)
 

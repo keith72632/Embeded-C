@@ -2430,3 +2430,7 @@
 2021-02-06 09:51:49,988 [INFO] McuResultTable:777 - Mark MCU STM32F407VGTx as favorite
 2021-02-06 09:52:14,849 [INFO] ApiDb:263 - Save user favorites file /home/keith/.stm32cubeide/favorites.mcus.txt: 1 item(s)
 2021-02-06 09:52:14,850 [INFO] ApiDb:267 - User favorites MCUs=[STM32F407VGTx]
+2021-02-08 17:14:58,501 [INFO] Activator:170 - 
+
+
+2021-02-08 17:14:58,503 [INFO] Activator:171 - !SESSION log4j initialized

@@ -317,3 +317,299 @@ Finished building: review.bin
  
 Finished building: review.list
  
+17:15:30 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    760	      8	   1568	   2336	    920	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+ 
+17:34:16 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: review.bin
+Finished building: default.size.stdout
+Finished building: review.list
+ 
+ 
+ 
+17:34:38 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 
+17:45:20 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:33:2: error: invalid operands to binary * (have 'uint32_t * {aka long unsigned int *}' and 'uint32_t * {aka long unsigned int *}')
+  *pClockControl |= (1 << 0);
+  ^
+../Src/main.c:45:10: error: expected expression before ':' token
+  while(1):
+          ^
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:46:07 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:33:2: error: invalid operands to binary * (have 'uint32_t * {aka long unsigned int *}' and 'uint32_t * {aka long unsigned int *}')
+  *pClockControl |= (1 << 0);
+  ^
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:47:32 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    788	      8	   1568	   2364	    93c	review.elf
+Finished building: default.size.stdout
+Finished building: review.list
+Finished building: review.bin
+ 
+ 
+ 
+17:47:33 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    788	      8	   1568	   2364	    93c	review.elf
+Finished building: default.size.stdout
+ 
+17:48:58 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    792	      8	   1568	   2368	    940	review.elf
+Finished building: default.size.stdout
+ 
+Finished building: review.bin
+Finished building: review.list
+ 
+ 
+17:51:56 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    792	      8	   1568	   2368	    940	review.elf
+Finished building: default.size.stdout
+Finished building: review.list
+Finished building: review.bin
+ 
+ 
+ 
+17:54:03 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    788	      8	   1568	   2364	    93c	review.elf
+Finished building: default.size.stdout
+Finished building: review.list
+Finished building: review.bin
+ 
+ 
+ 
+18:00:34 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:40:19: error: lvalue required as left operand of assignment
+  if(!*pGPIOBinput &= ~(1 << 5)){
+                   ^~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:00:59 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 
+18:00:59 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	review.elf
+Finished building: default.size.stdout
+ 
+18:01:27 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	review.elf
+Finished building: default.size.stdout
+ 
+18:07:08 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+Finished building: review.list
+ 
+ 
+ 
+18:08:21 **** Incremental Build of configuration Debug for project SizeOf ****
+make -j8 all 
+arm-none-eabi-size   SizeOf.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5176	    108	   1580	   6864	   1ad0	SizeOf.elf
+Finished building: default.size.stdout
+ 
+18:10:55 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+ 
+18:12:12 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 
+18:12:45 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+Finished building: review.list
+ 
+ 
+ 
+18:14:13 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+ 
+Finished building: review.list
+ 
+18:14:32 **** Incremental Build of configuration Debug for project review ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "review.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/keith/Documents/Embeded-C/workspace/target/review/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="review.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: review.elf
+ 
+arm-none-eabi-objdump -h -S  review.elf  > "review.list"
+arm-none-eabi-objcopy  -O binary  review.elf  "review.bin"
+arm-none-eabi-size   review.elf 
+   text	   data	    bss	    dec	    hex	filename
+    808	      8	   1568	   2384	    950	review.elf
+Finished building: default.size.stdout
+Finished building: review.bin
+ 
+Finished building: review.list
+ 
+ 

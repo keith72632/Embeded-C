@@ -24,22 +24,30 @@
 int main(void)
 {
 	uint32_t *pClockControl = (uint32_t *)0x40023830;
-	uint32_t *pGPIODmode = (uint32_t *)0x40020000;
-	uint32_t *pGPIODout = (uint32_t *)0x40020014;
+	uint32_t *pGPIOAmode = (uint32_t *)0x40020000;
+	uint32_t *pGPIOAout = (uint32_t *)0x40020014;
 
-	*pClockControl |= (1 << 0);
-	*pGPIODmode &= ~(3 << 14);
-	*pGPIODmode |= (1 << 14);
+	uint32_t *pGPIOBmode = (uint32_t *)0x40020400;
+	uint32_t *pGPIOBinput = (uint32_t *)0x40020410;
+
+	*pClockControl |= (1 << 0) | (1 << 1);
+	*pGPIOAmode &= ~(3 << 14);
+	*pGPIOAmode |= (1 << 14);
+
+
+	*pGPIOBmode &= ~(3 << 10);
 
 	while(1){
-		*pGPIODout |= (1 << 7);
+		//asking if bit 5 is one and storing in a variable. this bit is read only
+		uint8_t pinStatus = (uint8_t)(*pGPIOBinput & (1 << 5));
 
-		for(uint32_t i = 0; i < 200000; i++);
+		if(pinStatus){
 
-		*pGPIODout &= ~(1 << 7);
+			*pGPIOAout |= (1 << 7);
+		} else {
+			*pGPIOAout &= ~(1 << 7);
+		}
 
-		for(uint32_t i = 0; i < 200000; i ++);
 	}
-
 
 }
