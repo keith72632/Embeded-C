@@ -126,3 +126,5 @@ Bit Extraction:
 const: 
 	-uint_8 constL pointer is muttable but the data isnt
 	-
+Unions:
+	-declared like a struct, but memory is only as big as its one largest member
