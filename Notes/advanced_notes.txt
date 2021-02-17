@@ -30,4 +30,44 @@ Access Levels of Prcessor
   -In thread mode, once you move out of PAL, you cannot come back unless enter into handler mode
   -Handler mode is always PAL
   -CONTROL register is used to switch bewteen levels
-  -
+
+Core Registers Cortext M
+  -Core registers are emebeded within processor
+  -r0 through r12 are general purpose regitsers
+  -all core registers are 32 bit
+  -r13 is stack pointer (sp)
+    -used to track stack memory
+    -psp and msp are part of stack pointer
+    -which one is added is contigent on mode
+  -r14 is link register (lr)
+    -returns the infor for subroutines, system calls and exceptions
+    -on reset, the processor sets the lr to 0xFFFFFFF
+    -ex. two functions. Caller and callee (one fuctions calls the other)
+    -when function2 is called in function1, jumps to address of function1.
+      -once function1 is finished, jumps back to address of function1 called within function2
+      -within assembly, this "jump" is showed with bl(branch with link)
+      -under register tab in IDE, you can see the lr is updated at this point
+        -after function finished in assembly, bx is updated with orignal address of caller
+  -r15 is program counter(pc)
+    -contains current prgram counter. On reset the processor loads the PC with the value of reset vector
+    -holds the address of the next function to be called
+  -Special Registers
+    -5 specials registers, PSR, PRIMASK, FAULTMASK, BASEPRI, CONTROL respectively
+    -PSR or program status register
+      -contains APSR(apllication program status register), IPSR(interrupt program status register) and EPSR(execution program status register)
+      -APSR contains all conditional flags like zero flags and negative flags etc. Bits 27 through 31, the rest of the bits are reservered
+      -IPSR contains the exception type number for current routine
+      -EPSR T bit set to one, the proccessor thinks the next program to be exectuted with ARM-Thumb interworking. 0 is ARM state
+
+Memory mapped and non memory mapped registers
+  -registors just mentioned are non memory mapped (no unique memory addresses)
+  -register that have their own unique addresses are memory mapped
+    -memory mapped has two types:registers for specific peripherals(NVIC, SCB, DEBUG) and specific register for microcontroller(TIMER< USB>)
+    -every register is mapped
+
+GCC inline assembly code
+  -used to write pure assembly within C code
+  -Assembly instruction: MOV r0, r1
+    -syntax: _asm volatile("MOV, R0, R1");
+
+
