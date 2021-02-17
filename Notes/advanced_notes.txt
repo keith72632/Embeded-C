@@ -1,0 +1,33 @@
+Thread Mode and Handler mode
+
+What is thread mode?
+
+
+Reset Handlers:
+  -processor always starts in thread mode
+  -generate interrupt by setting certain bits at IRQ register
+
+What is handler mode?
+  -handler mode is the mode that exception(interrupts) are handled in
+
+How Do Thread Mode and Handler mode work together?
+  Short answer is they have their own code region, RAM region and stack.
+
+How to debug wether function is in thread or handler mode
+  IPSR (Interrupt Program Status Register) has a bit field called ISR_NUMBER[8:0]
+    -0=thread mode
+    -1=reserved
+    -2=NMI
+    -3=Hard Fault
+    -4=mem manage and so on
+TDLR switching between thread and handler mode by triggering system exception, with handler mode always being privleged.
+
+Access Levels of Prcessor
+  a)Privileged
+  b)Non-Privilege
+  -Self explanitory, Certain registers are only accessed with full privilege PAL
+  -By default, runs in PAL
+  -In thread mode, once you move out of PAL, you cannot come back unless enter into handler mode
+  -Handler mode is always PAL
+  -CONTROL register is used to switch bewteen levels
+  -
