@@ -80,5 +80,46 @@ GCC inline assembly code
   -used to write pure assembly within C code
   -Assembly instruction: MOV r0, r1
     -syntax: _asm volatile("MOV, R0, R1");
+  -ex.
+    -ldr r0, [r1]  memory read
+    -ldr r1, [r2]  
+    -add r1, r0    memory modify
+    -str r1, [r3]  memory write
+    C would be
+    -void fun_add(void)
+    {
+        _asm volatile("LDR R0, [R1]");
+        _asm volatile("LDR R1, [R2]");
+        _asm volatile("LDR R1, R0");
+        _asm volatile("STR R1, [R3]");
 
-
+        _asm volatile (
+		"LDR r0,[r1]\n\t"
+		"LDR r1, [r2]\n\t"
+		"add r1, r0\n\t"
+		"str r1, [r3]\n\t"
+	);
+        }
+why would you use this?
+	-moving c variable to assembler
+	-mov C varible like CONTROL register to c varibale
+	-must use volatile
+Two types of operands
+	-output and input
+	-output first
+	-ex ldr r0, [r1] r0 is output, r1 is input
+	-::: at the end is clobber list. This specifc implies no clobber list
+input and output operands
+	-Constraint string = constraint character + constraint modifierm
+	-move content of c varibale to ARM r0
+	-__asm volatile ("mov r0,%0": : "r"(val));
+		first mention ARM instruction 
+		-then input operand
+			-first "r" is a contraint string or a contraint character followed by value
+			-if c value is 5, mov to %0
+	-ex.
+	-int val = 50;
+	__asm volatile("mov r0,%0": :"r"(val));
+	-contraint values:
+		-r is general purpose 
+		-I is immediate value
