@@ -123,3 +123,25 @@ input and output operands
 	-contraint values:
 		-r is general purpose 
 		-I is immediate value
+Special Registers
+	-MRS move from special reg to reg (read)
+	-MSR move from reg to special reg (write)
+		-mrs reg, spec_reg
+		__asm volatile("mrs %0,CONTROL" : "=r"(control_reg)::);
+			-"=r" contraint character
+		- =write only, + read only, &output only
+Reset Sequence
+	-when reset, processor is loaded with value of 0x0000_0000
+	-the processor reads value @ memory location 0x0000_0000
+	-msp = value@0x0000_0000
+	-msp is a main stack pointer register
+	-processor first initializes main stack pointer
+	-after that the processor reads the value @ mem location 0x0000_0004
+		-this value is the actual address of the reset handler
+	-pc jumps to reset handler
+	-reset handler is just a C or assembly function written by programmer to carry out any intitalization req
+	-from reset handler you call main function
+	-ex. Reset 0x00000000, then reset at 0x00000004 then to first instruction 0x20001000, then main function
+	-reset handler in startup file
+	-processor reset->initialize data, initialize bss, initalize C stdlib->main
+	

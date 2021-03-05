@@ -32,10 +32,21 @@ int main(void)
     __asm volatile("ldr r1, [r2]");
     __asm volatile("add r0,r0, r1");
 	__asm volatile("str r0, [r2]");
-*/
+
 	int val = 50;
 	__asm volatile("mov r0,%0": :"r"(val));
-	for(;;);
 
+	int control_reg;
+
+	__asm volatile("mrs %0,CONTROL": "=r"(control_reg));
+
+	int var1 = 10, var2;
+
+	__asm ("mov %0, %1": "=r"(var2): "r"(var1));
+	for(;;);
+*/
+	int p1, *p2;
+	p2 = (int*)0x20000008;
+	__asm volatile("LDR %0, [%1]": "=r"(p1): "r"(p2));
 	return 0;
 }
