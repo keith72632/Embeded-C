@@ -145,3 +145,58 @@ Reset Sequence
 	-reset handler in startup file
 	-processor reset->initialize data, initialize bss, initalize C stdlib->main
 	
+Switching between access levels
+	-to change access level set nPRIV (bit 0) to 0 for priviledge, and 1 for unprivileged in CONTROL reg
+		-core register is not a memory map, so no pointers. only assembly
+		-read first then modify. MRS first to read
+			-read in with MRS r0, CONTROL
+			-set CONTROL bit 0 to 1
+			-load CONTROL is special register with msr
+	-use case
+	-realt time application and kernel
+	-before running user task, kernel can change to unpriviledged
+	-How to switch back?
+		-you can not go from unvprivliedged to priviledged
+		-you must trigger an interrupt to switch from thread mode back to handler mode
+		-enter into isr and modify control register to 0
+T bit and EPSR
+	-T bit decdies which state the processor is in, wether thumb or arm
+	-various arm processors support ARM-THUMB interworking, which means the ability to swtich between arm and 
+		thumb
+	-processor must be in ARM state to execute intructions which are from arm isa and vice versa for thumb
+	-if T bit of the epsr is set(1), processor thinks that the next instruction is from THUMB isa
+	-if epsr is set(0) then processor thinks that the next instruction is from ARM
+	-cortex doesnt support the ARM state, hence T bit value is always 1.Failure off this will result in
+	"Usage Fault" exception
+	-the lsb (bit 0) of the prgram counter(PC) is linked to T bit
+		-when you load value of address in to PC the bit[0] of that value or address is loaded into the T bit
+	-which means any value in pc must have 0 bit as 1
+	-always initialize address with OR 0x01 just to be safe
+	-pure C program compilers will catch this, which is why address will be slightly different
+	-this is the reason why you see all vecotr addresses are incremented by 1 in vector table
+Memory Mapped Address
+	-System bus(AHB) connect processor, GPIOD, TIMER, data memory ADC, Code Memroy and I2C
+		-code memory is place where you keep instructions
+		-data memory is where you store temporary data
+	-bus is 32 bits
+	-0x000000 through 0xFFFFFFFF
+	-Code Region
+		-512mb of code memory
+	-SRAM region
+		-512mb after code region
+		-temporary data
+	-Peripheral Region
+		-512mb
+		-first 1mb is addresssable if the optional bit-band feature is included
+		-this is an execute never(VN) region
+	-External Ram
+		-if more ram is needed
+	-Private Peripheral Bus Region
+Bus Protocols and Bus Interfaces
+	-in cortex Mx processors are based on bus architecture (AMBA)
+	-supports AHB lite and APB
+	-AHB(AMBA High-Performace Bus)is mainly used for the main bus high speed communication
+	-APB(AMBA Peripheral Bus)PPB private peripheral using ahb-apb bridge
+	-flash == code memory
+	-PPB or private peripheral Bus icludes Timer and most Peripherals. This is an XN
+	-
